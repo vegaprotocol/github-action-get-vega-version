@@ -28,8 +28,35 @@ If there is a new version compared to the previous version inputted. False if no
 
 ## Example usage
 
+### Get the version marked latest
+
 ```yaml
-uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
+uses: actions/@vegaprotocol/vega-version-action
 with:
-  who-to-greet: "Mona the Octocat"
+  latest: true
+```
+
+### Get the most recent non-preview version
+
+```yaml
+uses: actions/@vegaprotocol/vega-version-action
+with:
+  latest: true
+```
+
+### Get the most recent version, including preview versions
+
+```yaml
+uses: actions/@vegaprotocol/vega-version-action
+with:
+  include-preview-versions: true
+```
+
+### Check against a previous version
+
+```yaml
+uses: actions/@vegaprotocol/vega-version-action
+with:
+  latest: true
+  previous-version: "v0.0.1"
 ```

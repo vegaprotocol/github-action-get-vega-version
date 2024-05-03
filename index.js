@@ -27,13 +27,13 @@ const getVersion = async () => {
 };
 
 try {
-  const latest = core.getInput("latest");
-  const includePreview = core.getInput("include-preview-versions");
+  const latest = Boolean(core.getInput("latest"));
+  const includePreview = Boolean(core.getInput("include-preview-versions"));
   const previousVersion = core.getInput("previous-version");
 
-  if (!(latest ^ includePreview)) {
+  if (latest && includePreview) {
     throw new Error(
-      "You must provide either 'latest' or 'include-preview-versions' but not both"
+      "You cannot provide both 'latest' and 'include-preview-versions'"
     );
   }
 
