@@ -1,4 +1,4 @@
-name: "Hello World"
+name: "Get Vega Version"
 description: "Greet someone and record the time"
 inputs:
   include-preview-versions:
