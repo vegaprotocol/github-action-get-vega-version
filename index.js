@@ -26,21 +26,27 @@ const getVersion = async () => {
   }
 };
 
-try {
-  const latest = Boolean(core.getInput("latest"));
-  const includePreview = Boolean(core.getInput("include-preview-versions"));
-  const previousVersion = core.getInput("previous-version");
+const run = async () => {
+  try {
+    const latest = Boolean(core.getInput("latest"));
+    const includePreview = Boolean(core.getInput("include-preview-versions"));
+    const previousVersion = core.getInput("previous-version");
 
-  if (latest && includePreview) {
-    throw new Error(
-      "You cannot provide both 'latest' and 'include-preview-versions'"
-    );
+    if (latest && includePreview) {
+      throw new Error(
+        "You cannot provide both 'latest' and 'include-preview-versions'"
+      );
+    }
+
+    const version = await getVersion();
+
+    core.setOutput("current-version", version);
+    core.setOutput("new-version", semver.gt(version, previousVersion));
+  } catch (error) {
+    core.setFailed(error.message);
   }
+};
 
-  const version = await getVersion();
-
-  core.setOutput("current-version", version);
-  core.setOutput("new-version", semver.gt(version, previousVersion));
-} catch (error) {
-  core.setFailed(error.message);
-}
+module.exports = {
+  run,
+};
