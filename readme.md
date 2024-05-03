@@ -4,35 +4,27 @@ This action prints gets the current version of Vega based on the VegaProtocol gi
 
 ## Inputs
 
-<!--
-  include-preview-versions:
-    description: "If you want preview versions of the app. Not compatible with latest."
-    required: false
-  latest:
-    description: "Get the version marked as latest. Not compatible with include-preview-versions."
-    required: false
-  previous-version:
-    description: "Check the found version against an existing version, to see if there is a new version"
-    default: "v0.0.0"
-    required: false
- -->
+### `include-preview-versions`
 
-### `who-to-greet`
+If you want preview versions of the app. Not compatible with latest.
 
-**Required** The name of the person to greet. Default `"World"`.
+### `latest`
+
+Get the release marked as latest
+
+### `previous-version`
+
+Check the found version against an existing version, to see if there is a new version.
 
 ## Outputs
 
-<!--
-  current-version:
-    description: "The current Vega version"
-  new-version:
-    description: "If there is a new version compared to the previous version inputted. False if no previous version is given."
--->
+### `current-version`
 
-### `time`
+The current Vega version
 
-The time we greeted you.
+### `new-version`
+
+If there is a new version compared to the previous version inputted. False if no previous version is given.
 
 ## Example usage
 
