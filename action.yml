@@ -4,10 +4,11 @@ inputs:
   include-preview-versions:
     description: "If you want preview versions of the app. Not compatible with latest."
     required: false
+    default: ""
   latest:
     description: "Get the version marked as latest. Not compatible with include-preview-versions."
     required: false
-    default: false
+    default: ""
   previous-version:
     description: "Check the found version against an existing version, to see if there is a new version"
     default: "v0.0.0"
