@@ -31,7 +31,11 @@ const run = async () => {
     const latest = Boolean(core.getInput("latest"));
     const includePreview = Boolean(core.getInput("include-preview-versions"));
     const previousVersion = core.getInput("previous-version");
-
+    console.table([
+      ["latest", latest],
+      ["includePreview", includePreview],
+      ["previousVersion", previousVersion],
+    ]);
     if (latest && includePreview) {
       throw new Error(
         "You cannot provide both 'latest' and 'include-preview-versions'"
