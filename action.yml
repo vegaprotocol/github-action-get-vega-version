@@ -7,6 +7,7 @@ inputs:
   latest:
     description: "Get the version marked as latest. Not compatible with include-preview-versions."
     required: false
+    default: false
   previous-version:
     description: "Check the found version against an existing version, to see if there is a new version"
     default: "v0.0.0"
