@@ -1,7 +1,7 @@
 const core = require("@actions/core");
 const semver = require("semver");
 
-const getVersion = async (latest) => {
+const getVersion = async (latest, includePreview) => {
   if (latest) {
     const releases = await fetch(
       "https://api.github.com/repos/vegaprotocol/vega/releases/latest"
@@ -42,7 +42,7 @@ const run = async () => {
       );
     }
 
-    const version = await getVersion(latest);
+    const version = await getVersion(latest, includePreview);
 
     core.setOutput("current-version", version);
     core.setOutput("new-version", semver.gt(version, previousVersion));
