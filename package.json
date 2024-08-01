@@ -1,6 +1,6 @@
 {
   "name": "@vegaprotocol/vega-version-action",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A github action to get the current version of Vega",
   "main": "index.js",
   "scripts": {
