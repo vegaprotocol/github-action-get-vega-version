@@ -14,15 +14,20 @@ const getVersion = async (latest, includePreview) => {
     );
     const json = await releases.json();
     const allVersions = await json.map((release) => release.tag_name);
+    console.log(allVersions);
     const selectedVersions = allVersions.filter(
-      (version) => includePreview && version.includes("preview")
+      (version) =>
+        (includePreview && version.includes("preview")) ||
+        !version.includes("preview")
     );
-    return selectedVersions.reduce((cur, acc) => {
+    const foundVersion = selectedVersions.reduce((cur, acc) => {
       if (semver.gt(cur, acc)) {
         return cur;
       }
       return acc;
     }, "v0.0.0");
+    console.log("Found version:", foundVersion);
+    return foundVersion;
   }
 };
 
